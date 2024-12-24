@@ -321,6 +321,7 @@ public class HtmlLogger : ITestLoggerWithParameters
                 HtmlFilePath = GenerateUniqueFilePath(fileName, HtmlLoggerConstants.HtmlFileExtension);
             }
 
+            ConsoleOutput.Instance.Error(false, HtmlResource.HtmlLoggerError, XmlFilePath);
             _htmlTransformer.Transform(XmlFilePath, HtmlFilePath);
         }
         catch (Exception ex)
@@ -334,7 +335,7 @@ public class HtmlLogger : ITestLoggerWithParameters
         {
             if (XmlFilePath != null)
             {
-                _fileHelper.Delete(XmlFilePath);
+                //_fileHelper.Delete(XmlFilePath);
             }
         }
 

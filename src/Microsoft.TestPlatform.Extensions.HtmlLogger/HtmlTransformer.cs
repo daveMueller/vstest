@@ -36,7 +36,7 @@ internal class HtmlTransformer : IHtmlTransformer
         using XmlReader xr = XmlReader.Create(xmlFile, new XmlReaderSettings() { CheckCharacters = false });
 
         // Use output settings from the xslt, especially the output method, which is HTML, which avoids outputting broken <div /> tags.
-        using XmlWriter xw = XmlWriter.Create(htmlFile, _xslTransform.OutputSettings);
+        using XmlWriter xw = XmlWriter.Create(htmlFile, new XmlWriterSettings() { CheckCharacters = false });
 
         _xslTransform.Transform(xr, xw);
     }
